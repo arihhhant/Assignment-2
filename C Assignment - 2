@@ -25,43 +25,24 @@ Marks: 90
 //Question 2: what do you mean by array and pointers array? 
 //Answer 2: 
 #include <stdio.h>
-#include <string.h>
-
-struct Student {
-    char name[20];
-    int marks;
-};
 
 int main() {
-    // Array of structures
-    struct Student students[2] = { {"Student1", 90}, {"Student2", 85} };
+    int marks[3] = {75, 85, 95};   // Normal array
+    int *ptr[3] = {&marks[0], &marks[1], &marks[2]}; // Pointer array
 
-    printf("Array of structures:\n");
-    for(int i = 0; i < 2; i++) {
-        printf("Name: %s, Marks: %d\n", students[i].name, students[i].marks);
-    }
+    printf("Array: ");
+    for(int i=0; i<3; i++) printf("%d ", marks[i]);
+    printf("\n");
 
-    // Pointer array to structures
-    struct Student *ptr[2];
-    ptr[0] = &students[0];
-    ptr[1] = &students[1];
-
-    printf("\nPointer array to structures:\n");
-    for(int i = 0; i < 2; i++) {
-        printf("Name: %s, Marks: %d\n", ptr[i]->name, ptr[i]->marks);
-    }
+    printf("Pointer Array: ");
+    for(int i=0; i<3; i++) printf("%d ", *ptr[i]);
+    printf("\n");
 
     return 0;
 }
 //Output :-
-
-Array of structures:
-Name: Student1, Marks: 90
-Name: Student2, Marks: 85
-
-Pointer array to structures:
-Name: Student1, Marks: 90
-Name: Student2, Marks: 85
+Array: 75 85 95 
+Pointer Array: 75 85 95
 
 //Question 3: Compare two structures variables by using the comparison operator (not equal and equal). 
 //Answer 3: 
